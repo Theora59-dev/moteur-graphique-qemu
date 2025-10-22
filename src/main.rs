@@ -38,7 +38,7 @@ fn main(_image_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
     let gop = unsafe { &mut *gop_ptr.get() };
     let mode = 0;
     let mode_info = gop.modes().nth(mode).unwrap().unwrap();
-    gop.set_mode(&mode_info).unwrap(); // Réinitialiser la console texte
+    let _ = gop.set_mode(&mode_info).unwrap(); // Réinitialiser la console texte
     let _ = system_table.stdout().reset(false);
 
     // Obtenir l'heure initiale
