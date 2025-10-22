@@ -1,0 +1,23 @@
+[package]
+name = "firmware_rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+uefi = "0.13"
+# compiler_builtins = { version = "0.1", features = ["mem"] }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
+[[bin]]
+name = "bootx64"
+path = "src/main.rs"
+
+[target.'cfg(all())']
+rustflags = [
+    "-C", "link-arg=--gc-sections"
+]

@@ -1,0 +1,8 @@
+[build]
+target = "x86_64-unknown-uefi.json"
+
+[workspace]
+test = false
+# # Ne pas utiliser `cargo test` pour l'analyse
+[build]
+target = "x86_64-unknown-uefi.json"

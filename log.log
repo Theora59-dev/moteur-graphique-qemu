@@ -1,0 +1,906 @@
+- stderr
+  error: unknown unstable option: `build-std-features`
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build --target ./x86_64-unknown-uefi.json -Z build-std=core,alloc,std,panic_abort
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined -Z build-std-features=compiler-builtins/mem --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: unknown unstable option: `build-std-features`
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rustup component add rust-src --toolchain nightly
+info: component 'rust-src' is up to date
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rustup component add rust-src --toolchain nightly
+info: component 'rust-src' is up to date
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build --target ./x86_64-unknown-uefi.json -Z build-std=core,alloc,std,panic_abort
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "-nostdlib" "--gc-sections" "--no-undefined" "/tmp/rustcOJp6I4/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-bed31f95586d35e9,libbitflags-c6e3a0b133352008,libucs2-561ef8f31fd95d06,libbit_field-c964dd0ddd6a5eb9,liblog-ccbacde74340a000,libcore-c0465f9a076441c4,libcompiler_builtins-fed2993b3d15fa40}.rlib" "-L" "/tmp/rustcOJp6I4/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-551cd1a7b8f04e4b" "--gc-sections" "-nostdlib" "--gc-sections" "--no-undefined"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build --target ./x86_64-unknown-uefi.json -Z build-std=core,alloc,std,panic_abort
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "-nostdlib" "--gc-sections" "--no-undefined" "/tmp/rustcK1ZwH1/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-bed31f95586d35e9,libbitflags-c6e3a0b133352008,libucs2-561ef8f31fd95d06,libbit_field-c964dd0ddd6a5eb9,liblog-ccbacde74340a000,libcore-c0465f9a076441c4,libcompiler_builtins-fed2993b3d15fa40}.rlib" "-L" "/tmp/rustcK1ZwH1/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-551cd1a7b8f04e4b" "--gc-sections" "-nostdlib" "--gc-sections" "--no-undefined"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build --target ./x86_64-unknown-uefi.json -Z build-std=core,alloc,std,panic_abort
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build --target ./x86_64-unknown-uefi.json -Z build-std=core,alloc,std,panic_abort
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "-nostdlib" "--gc-sections" "--no-undefined" "/tmp/rustcRuAktu/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-a3ce15598cb9b0bb,libbitflags-7ac875ca3298f6ba,libucs2-90dd1a7a0f040d00,libbit_field-85a956427d763139,liblog-c135b98ea566ed30,libcore-c0465f9a076441c4,libcompiler_builtins-fed2993b3d15fa40}.rlib" "-L" "/tmp/rustcRuAktu/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-5c11f137527e7d77" "--gc-sections" "-nostdlib" "--gc-sections" "--no-undefined"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: target-pointer-width: invalid type: string "64", expected u16 at line 6 column 30
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "-nostdlib" "--gc-sections" "--no-undefined" "/tmp/rustcJg0H57/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-07a69e6b26adbc70,libbitflags-d6bef121ab367b20,libucs2-2241e1c6bd34d9e4,libbit_field-5b0c83bc2ab8274f,liblog-91c5a5c0af5cf7a1,libcore-ecee2b0334cff586,libcompiler_builtins-a96102daf069cf85}.rlib" "-L" "/tmp/rustcJg0H57/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-b709608a42696c05" "--gc-sections" "-nostdlib" "--gc-sections" "--no-undefined"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: linker-flavor: invalid linker flavor, allowed values: one of: gnu gnu-lld gnu-cc gnu-lld-cc darwin darwin-lld darwin-cc darwin-lld-cc wasm-lld wasm-lld-cc unix unix-cc msvc-lld msvc em-cc bpf llbc ptx gcc ld ld.lld ld64.lld lld-link wasm-ld em  at line 11 column 25
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-nostdlib -C link-arg=--gc-sections -C link-arg=--no-undefined --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: linker-flavor: invalid linker flavor, allowed values: one of: gnu gnu-lld gnu-cc gnu-lld-cc darwin darwin-lld darwin-cc darwin-lld-cc wasm-lld wasm-lld-cc unix unix-cc msvc-lld msvc em-cc bpf llbc ptx gcc ld ld.lld ld64.lld lld-link wasm-ld em  at line 11 column 25
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: linker-flavor: invalid linker flavor, allowed values: one of: gnu gnu-lld gnu-cc gnu-lld-cc darwin darwin-lld darwin-cc darwin-lld-cc wasm-lld wasm-lld-cc unix unix-cc msvc-lld msvc em-cc bpf llbc ptx gcc ld ld.lld ld64.lld lld-link wasm-ld em  at line 11 column 25
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: linker-flavor: invalid linker flavor, allowed values: one of: gnu gnu-lld gnu-cc gnu-lld-cc darwin darwin-lld darwin-cc darwin-lld-cc wasm-lld wasm-lld-cc unix unix-cc msvc-lld msvc em-cc bpf llbc ptx gcc ld ld.lld ld64.lld lld-link wasm-ld em  at line 11 column 25
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "-nostdlib" "--gc-sections" "--no-undefined" "/tmp/rustcEVLtfI/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-e5f9bf5c0ed18707,libbitflags-82b2e0470101b95b,libucs2-5e8378c9ef38afdb,libbit_field-03e2f6d9ff90f841,liblog-322721c483ef01b1,libcore-750a9f86265573db,libcompiler_builtins-16ab28eeb89c4a6a}.rlib" "-L" "/tmp/rustcEVLtfI/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-955acd4541d75004" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: linker-flavor: invalid linker flavor, allowed values: one of: gnu gnu-lld gnu-cc gnu-lld-cc darwin darwin-lld darwin-cc darwin-lld-cc wasm-lld wasm-lld-cc unix unix-cc msvc-lld msvc em-cc bpf llbc ptx gcc ld ld.lld ld64.lld lld-link wasm-ld em  at line 11 column 25
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `linker_flavor` must be `msvc` if and only if `is_like_msvc` is set
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `linker_flavor` must be `msvc` if and only if `is_like_msvc` is set
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+error: data-layout for target `x86_64-unknown-uefi-2187192934042472399`, `e-m:e-i64:64-f80:128-n8:16:32:64-S128`, differs from LLVM target's `x86_64-unknown-none` default layout, `e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128`
+
+error: could not compile `core` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `compiler_builtins` (lib) due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "/tmp/rustcgHZ4xJ/symbols.o" "<9 object files omitted>" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-045a7faea2d7e5d8,libbitflags-5b15e65bd27ac8ea,libucs2-09135fdec4b82e09,libbit_field-86fcfcad63320b9b,liblog-d969e3fb9583f841,libcore-a5ffb844dfbf4e12,libcompiler_builtins-679dbcf0ba792268}.rlib" "/LIBPATH:/tmp/rustcgHZ4xJ/raw-dylibs" "/NXCOMPAT" "/OUT:/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-0ba7abe666e48aec" "/OPT:REF,NOICF" "/DEBUG" "/PDBALTPATH:%_PDB%" "/NODEFAULTLIB" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: lld is a generic driver.
+          Invoke ld.lld (Unix), ld64.lld (macOS), lld-link (Windows), wasm-ld (WebAssembly) instead
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "/tmp/rustcnGzpbi/symbols.o" "<9 object files omitted>" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-045a7faea2d7e5d8,libbitflags-5b15e65bd27ac8ea,libucs2-09135fdec4b82e09,libbit_field-86fcfcad63320b9b,liblog-d969e3fb9583f841,libcore-a5ffb844dfbf4e12,libcompiler_builtins-679dbcf0ba792268}.rlib" "/LIBPATH:/tmp/rustcnGzpbi/raw-dylibs" "/NXCOMPAT" "/OUT:/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-0ba7abe666e48aec" "/OPT:REF,NOICF" "/DEBUG" "/PDBALTPATH:%_PDB%" "/NODEFAULTLIB" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: lld is a generic driver.
+          Invoke ld.lld (Unix), ld64.lld (macOS), lld-link (Windows), wasm-ld (WebAssembly) instead
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `lld-link` failed: exit status: 1
+  |
+  = note:  "lld-link" "-flavor" "link" "/tmp/rustc3efYsS/symbols.o" "<9 object files omitted>" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-890f1587dc8e07e6,libbitflags-f573fcf7034b6265,libucs2-a63edd6cb593d68b,libbit_field-84a8bf6a31137970,liblog-74ae43dc7f56c64a,libcore-824c8c22152f6a3b,libcompiler_builtins-501fc57cde0797f7}.rlib" "/LIBPATH:/tmp/rustc3efYsS/raw-dylibs" "/NXCOMPAT" "/OUT:/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93" "/OPT:REF,NOICF" "/DEBUG" "/PDBALTPATH:%_PDB%" "/NODEFAULTLIB" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: lld-link: warning: ignoring unknown argument '-Wl,--no-nxcompat'
+          lld-link: error: /tmp/rustc3efYsS/symbols.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.2s8fkf0t6vruepqoar1bo1cyd.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.3drx9fg84p8wbnqfdxt5z0ceu.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.3qumf1e80ioj615pvu1m2emto.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.5ofmlyftxlijc7s7jyy2vhphm.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.678saz0157595fonffr9kic0u.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.8gw8ojsczwbyvvsh3zs4sbe2k.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.bhvoa6z7zetubzt0nwe12gq65.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.bxs32oon9i249rtod9nub44i2.1hj0bi5.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.cm5ce1lhs4ykthmcak1ieqt4z.1hj0bi5.rcgu.o: unknown file type
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `lld-link` failed: exit status: 1
+  |
+  = note:  "lld-link" "-flavor" "link" "/tmp/rustc5MCwCm/symbols.o" "<9 object files omitted>" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-890f1587dc8e07e6,libbitflags-f573fcf7034b6265,libucs2-a63edd6cb593d68b,libbit_field-84a8bf6a31137970,liblog-74ae43dc7f56c64a,libcore-824c8c22152f6a3b,libcompiler_builtins-501fc57cde0797f7}.rlib" "/LIBPATH:/tmp/rustc5MCwCm/raw-dylibs" "/NXCOMPAT" "/OUT:/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93" "/OPT:REF,NOICF" "/DEBUG" "/PDBALTPATH:%_PDB%" "/NODEFAULTLIB" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: lld-link: warning: ignoring unknown argument '-Wl,--no-nxcompat'
+          lld-link: error: /tmp/rustc5MCwCm/symbols.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.2s8fkf0t6vruepqoar1bo1cyd.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.3drx9fg84p8wbnqfdxt5z0ceu.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.3qumf1e80ioj615pvu1m2emto.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.5ofmlyftxlijc7s7jyy2vhphm.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.678saz0157595fonffr9kic0u.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.8gw8ojsczwbyvvsh3zs4sbe2k.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.bhvoa6z7zetubzt0nwe12gq65.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.bxs32oon9i249rtod9nub44i2.0kce65h.rcgu.o: unknown file type
+          lld-link: error: /home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-ab8f8b8eb2a54f93.cm5ce1lhs4ykthmcak1ieqt4z.0kce65h.rcgu.o: unknown file type
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: target-pointer-width: invalid type: string "64", expected u16 at line 6 column 30
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: target-pointer-width: invalid type: string "64", expected u16 at line 6 column 30
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustczllAnS/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-0b874e68f8cf1572,libbitflags-6821d606254db5dc,libucs2-3acfc8f618234f73,libbit_field-68c0d567893fdc80,liblog-af0287b647ed4793,libcore-14c0feab9de1f11f,libcompiler_builtins-615e9b2ab6baa0da}.rlib" "-L" "/tmp/rustczllAnS/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-d263e396cb153acf" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: target-pointer-width: invalid type: string "64", expected u16 at line 6 column 30
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustczvbhdB/symbols.o" "<9 object files omitted>" "--as-needed" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-90afff0884e82aa5,libbitflags-66fb61d1c5105273,libucs2-e5a804f98080b8dd,libbit_field-9ae62077705b64e5,liblog-354c6dd0055d20d5,libcore-3323e00c1629c715,libcompiler_builtins-8d091e0fe7af1c9b}.rlib" "-L" "/tmp/rustczvbhdB/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-bd9705b15f735bd7" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-
+rust-analyzer  rust-gdb       rust-gdbgui    rust-lldb      
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-
+rust-analyzer  rust-gdb       rust-gdbgui    rust-lldb      
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-
+rust-analyzer  rust-gdb       rust-gdbgui    rust-lldb      
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-lldb
+lldb not found! Please install it.
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo apt install lldb
+[sudo] Mot de passe de clement : 
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+Les paquets supplémentaires suivants seront installés : 
+  liblldb-18 lldb-18 python3-lldb-18
+Les NOUVEAUX paquets suivants seront installés :
+  liblldb-18 lldb lldb-18 python3-lldb-18
+0 mis à jour, 4 nouvellement installés, 0 à enlever et 6 non mis à jour.
+Il est nécessaire de prendre 5 584 ko dans les archives.
+Après cette opération, 22,1 Mo d'espace disque supplémentaires seront utilisés.
+Souhaitez-vous continuer ? [O/n] O
+Réception de :1 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 liblldb-18 amd64 1:18.1.3-1ubuntu1 [4 243 kB]
+Réception de :2 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-lldb-18 amd64 1:18.1.3-1ubuntu1 [113 kB]                                              
+Réception de :3 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 lldb-18 amd64 1:18.1.3-1ubuntu1 [1 222 kB]                                                    
+Réception de :4 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 lldb amd64 1:18.0-59~exp2 [5 678 B]                                                                   
+5 584 ko réceptionnés en 9s (605 ko/s)                                                                                                                                         
+Sélection du paquet liblldb-18 précédemment désélectionné.
+(Lecture de la base de données... 281333 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de .../liblldb-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de liblldb-18 (1:18.1.3-1ubuntu1) ...
+Sélection du paquet python3-lldb-18 précédemment désélectionné.
+Préparation du dépaquetage de .../python3-lldb-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de python3-lldb-18 (1:18.1.3-1ubuntu1) ...
+Sélection du paquet lldb-18 précédemment désélectionné.
+Préparation du dépaquetage de .../lldb-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de lldb-18 (1:18.1.3-1ubuntu1) ...
+Sélection du paquet lldb:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../lldb_1%3a18.0-59~exp2_amd64.deb ...
+Dépaquetage de lldb:amd64 (1:18.0-59~exp2) ...
+Paramétrage de liblldb-18 (1:18.1.3-1ubuntu1) ...
+Paramétrage de python3-lldb-18 (1:18.1.3-1ubuntu1) ...
+Paramétrage de lldb-18 (1:18.1.3-1ubuntu1) ...
+Paramétrage de lldb:amd64 (1:18.0-59~exp2) ...
+Traitement des actions différées (« triggers ») pour man-db (2.12.0-4build2) ...
+Traitement des actions différées (« triggers ») pour libc-bin (2.39-0ubuntu8.6) ...
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustcNRG3JP/symbols.o" "<9 object files omitted>" "--as-needed" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-90afff0884e82aa5,libbitflags-66fb61d1c5105273,libucs2-e5a804f98080b8dd,libbit_field-9ae62077705b64e5,liblog-354c6dd0055d20d5,libcore-3323e00c1629c715,libcompiler_builtins-8d091e0fe7af1c9b}.rlib" "-L" "/tmp/rustcNRG3JP/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-bd9705b15f735bd7" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustc1rrgwH/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-0b874e68f8cf1572,libbitflags-6821d606254db5dc,libucs2-3acfc8f618234f73,libbit_field-68c0d567893fdc80,liblog-af0287b647ed4793,libcore-14c0feab9de1f11f,libcompiler_builtins-615e9b2ab6baa0da}.rlib" "-L" "/tmp/rustc1rrgwH/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-d263e396cb153acf" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+error: failed to run `rustc` to learn about target-specific information
+
+Caused by:
+  process didn't exit successfully: `/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustc - --crate-name ___ --print=file-names -C link-arg=-Wl,--no-nxcompat --target '/home/clement/Projets/Reverse engineering/firmware_rust/x86_64-unknown-uefi.json' --crate-type bin --crate-type rlib --crate-type dylib --crate-type cdylib --crate-type staticlib --crate-type proc-macro --print=sysroot --print=split-debuginfo --print=crate-name --print=cfg -Wwarnings` (exit status: 1)
+  --- stderr
+  error: error loading target specification: `is_like_windows` must be set if and only if `os` is `windows`, `uefi` or `cygwin`
+    |
+    = help: run `rustc --print target-list` for a list of built-in targets
+
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustc1ceQI0/symbols.o" "<9 object files omitted>" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-0b874e68f8cf1572,libbitflags-6821d606254db5dc,libucs2-3acfc8f618234f73,libbit_field-68c0d567893fdc80,liblog-af0287b647ed4793,libcore-14c0feab9de1f11f,libcompiler_builtins-615e9b2ab6baa0da}.rlib" "-L" "/tmp/rustc1ceQI0/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "--nxcompat" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-d263e396cb153acf" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '--nxcompat'
+          rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ ll
+ll                 lld                lldb               lldb-argdumper     lldb-dap-18        lldb-server        lld-link           
+llcstat-bpfcc      lld-18             lldb-18            lldb-argdumper-18  lldb-instr-18      lldb-server-18     lld-link-18        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ ll
+ll                 lld                lldb               lldb-argdumper     lldb-dap-18        lldb-server        lld-link           
+llcstat-bpfcc      lld-18             lldb-18            lldb-argdumper-18  lldb-instr-18      lldb-server-18     lld-link-18        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lld
+lld                lldb               lldb-argdumper     lldb-dap-18        lldb-server        lld-link           
+lld-18             lldb-18            lldb-argdumper-18  lldb-instr-18      lldb-server-18     lld-link-18        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lld
+lld                lldb               lldb-argdumper     lldb-dap-18        lldb-server        lld-link           
+lld-18             lldb-18            lldb-argdumper-18  lldb-instr-18      lldb-server-18     lld-link-18        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lldb
+lldb               lldb-18            lldb-argdumper     lldb-argdumper-18  lldb-dap-18        lldb-instr-18      lldb-server        lldb-server-18     
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lldb
+lldb               lldb-18            lldb-argdumper     lldb-argdumper-18  lldb-dap-18        lldb-instr-18      lldb-server        lldb-server-18     
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lld
+lld                lldb               lldb-argdumper     lldb-dap-18        lldb-server        lld-link           
+lld-18             lldb-18            lldb-argdumper-18  lldb-instr-18      lldb-server-18     lld-link-18        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ lld
+lld is a generic driver.
+Invoke ld.lld (Unix), ld64.lld (macOS), lld-link (Windows), wasm-ld (WebAssembly) instead
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustcofvQgT/symbols.o" "<9 object files omitted>" "--as-needed" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-15360b8f9e005dd5,libbitflags-21ce081c533e9dac,libucs2-fbac4e31cdaf2194,libbit_field-26929e8eb4ebd555,liblog-cd48904e7b33ca03,libcore-64f6fce2a3cdbdd7,libcompiler_builtins-902dcd1a5d7fbca9}.rlib" "-L" "/tmp/rustcofvQgT/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-d4b132f7841182a1" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustcNX6Yt2/symbols.o" "<9 object files omitted>" "--as-needed" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-15360b8f9e005dd5,libbitflags-21ce081c533e9dac,libucs2-fbac4e31cdaf2194,libbit_field-26929e8eb4ebd555,liblog-cd48904e7b33ca03,libcore-64f6fce2a3cdbdd7,libcompiler_builtins-902dcd1a5d7fbca9}.rlib" "-L" "/tmp/rustcNX6Yt2/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-d4b132f7841182a1" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling bitflags v1.3.2
+   Compiling log v0.4.28
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+error: linking with `rust-lld` failed: exit status: 1
+  |
+  = note:  "rust-lld" "-flavor" "gnu" "/tmp/rustc4AAJo3/symbols.o" "<9 object files omitted>" "--as-needed" "-Bstatic" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/{libuefi-1ba04db88b475754,libbitflags-4cbee1fd829d8e03,libucs2-69d94931018a37d0,libbit_field-bedb6df4f26a8ee1,liblog-7ea9d76213a99168,libcore-0d6076b7a05ef6cb,libcompiler_builtins-c72bcbc658a70309}.rlib" "-L" "/tmp/rustc4AAJo3/raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "/home/clement/Projets/Reverse engineering/firmware_rust/target/x86_64-unknown-uefi/debug/deps/bootx64-6d052e2a1e13a6b1" "--gc-sections" "-Wl,--no-nxcompat"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: unknown argument '-Wl,--no-nxcompat'
+          
+
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json
+warning: unused manifest key: target.cfg(all()).rustflags
+   Compiling compiler_builtins v0.1.160 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling compiler_builtins v0.1.160
+   Compiling bit_field v0.10.3
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling ucs2 v0.3.3
+   Compiling uefi v0.13.0
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+warning: unused import: `uefi::proto::console::text::Output`
+ --> src/main.rs:6:5
+  |
+6 | use uefi::proto::console::text::Output;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error: `#[panic_handler]` function required, but not found
+
+warning: variable does not need to be mutable
+  --> src/main.rs:11:9
+   |
+11 |     let mut stdout = st.stdout();
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `image_handle`
+ --> src/main.rs:9:9
+  |
+9 | fn main(image_handle: Handle, system_table: SystemTable<Boot>) -> Status {
+  |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_image_handle`
+  |
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `firmware_rust` (bin "bootx64") generated 3 warnings
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error; 3 warnings emitted
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-uefi.json
+error: target path "./x86_64-uefi.json" is not a valid file
+
+Caused by:
+  No such file or directory (os error 2)
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json 
+warning: unused manifest key: target.cfg(all()).rustflags
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+warning: unused import: `uefi::proto::console::text::Output`
+ --> src/main.rs:6:5
+  |
+6 | use uefi::proto::console::text::Output;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error: `#[panic_handler]` function required, but not found
+
+warning: variable does not need to be mutable
+  --> src/main.rs:11:9
+   |
+11 |     let mut stdout = st.stdout();
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `image_handle`
+ --> src/main.rs:9:9
+  |
+9 | fn main(image_handle: Handle, system_table: SystemTable<Boot>) -> Status {
+  |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_image_handle`
+  |
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `firmware_rust` (bin "bootx64") generated 3 warnings
+error: could not compile `firmware_rust` (bin "bootx64") due to 1 previous error; 3 warnings emitted
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json 
+warning: unused manifest key: target.cfg(all()).rustflags
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+warning: variable does not need to be mutable
+  --> src/main.rs:17:9
+   |
+17 |     let mut stdout = st.stdout();
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `image_handle`
+  --> src/main.rs:15:9
+   |
+15 | fn main(image_handle: Handle, system_table: SystemTable<Boot>) -> Status {
+   |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_image_handle`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `firmware_rust` (bin "bootx64") generated 2 warnings (run `cargo fix --bin "bootx64"` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.15s
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cargo build -Zbuild-std=core,compiler_builtins --target ./x86_64-unknown-uefi.json 
+warning: unused manifest key: target.cfg(all()).rustflags
+   Compiling firmware_rust v0.1.0 (/home/clement/Projets/Reverse engineering/firmware_rust)
+warning: variable does not need to be mutable
+  --> src/main.rs:17:9
+   |
+17 |     let mut stdout = st.stdout();
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `image_handle`
+  --> src/main.rs:15:9
+   |
+15 | fn main(image_handle: Handle, system_table: SystemTable<Boot>) -> Status {
+   |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_image_handle`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `firmware_rust` (bin "bootx64") generated 2 warnings (run `cargo fix --bin "bootx64"` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/
+bootx64                build/                 deps/                  .fingerprint/          libfirmware_rust.rlib  
+bootx64.d              .cargo-lock            examples/              incremental/           
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/
+bootx64                build/                 deps/                  .fingerprint/          libfirmware_rust.rlib  
+bootx64.d              .cargo-lock            examples/              incremental/           
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+La commande « rust-objcopy » n'a pas été trouvée, mais peut être installée avec :
+sudo apt install cargo-binutils
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo apt install cargo-binutils
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+Les NOUVEAUX paquets suivants seront installés :
+  cargo-binutils
+0 mis à jour, 1 nouvellement installés, 0 à enlever et 6 non mis à jour.
+Il est nécessaire de prendre 1 418 ko dans les archives.
+Après cette opération, 29,2 Mo d'espace disque supplémentaires seront utilisés.
+Réception de :1 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 cargo-binutils amd64 0.3.5-3 [1 418 kB]
+1 418 ko réceptionnés en 7s (195 ko/s)                                                                                                                                         
+Sélection du paquet cargo-binutils précédemment désélectionné.
+(Lecture de la base de données... 281403 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de .../cargo-binutils_0.3.5-3_amd64.deb ...
+Dépaquetage de cargo-binutils (0.3.5-3) ...
+Paramétrage de cargo-binutils (0.3.5-3) ...
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+Could not find tool: objcopy
+at: /home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-objcopy
+Consider `rustup component add llvm-tools-preview`
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rustup component add llvm-tools-preview
+info: downloading component 'llvm-tools'
+info: installing component 'llvm-tools'
+ 35.8 MiB /  35.8 MiB (100 %)  22.3 MiB/s in  1s         
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-objcopy: error: unknown argument '--output-format=efi-app-bootloader'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy --output-format=efi-app-bootloader target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-objcopy: error: unknown argument '--output-format=efi-app-bootloader'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ llvm-objcopy -O binary target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.bin                                                                                     
+La commande « llvm-objcopy » n'a pas été trouvée, mais peut être installée avec :
+sudo apt install llvm
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy -O binary target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.bin
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ llvm-objcopy  -I elf64-x86-64 -O pei-x86-64  target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi                                                                                      
+La commande « llvm-objcopy » n'a pas été trouvée, mais peut être installée avec :
+sudo apt install llvm
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ rust-objcopy  -I elf64-x86-64 -O pei-x86-64  target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+/home/clement/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-objcopy: error: invalid output format: 'pei-x86-64'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo apt install llvm
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+Les paquets supplémentaires suivants seront installés : 
+  libncurses-dev libpfm4 libxml2-dev libz3-4 libz3-dev llvm-18 llvm-18-dev llvm-18-linker-tools llvm-18-runtime llvm-18-tools llvm-runtime
+Paquets suggérés :
+  ncurses-doc llvm-18-doc
+Les NOUVEAUX paquets suivants seront installés :
+  libncurses-dev libpfm4 libxml2-dev libz3-4 libz3-dev llvm llvm-18 llvm-18-dev llvm-18-linker-tools llvm-18-runtime llvm-18-tools llvm-runtime
+0 mis à jour, 12 nouvellement installés, 0 à enlever et 6 non mis à jour.
+Il est nécessaire de prendre 80,3 Mo dans les archives.
+Après cette opération, 491 Mo d'espace disque supplémentaires seront utilisés.
+Souhaitez-vous continuer ? [O/n] O
+Réception de :1 http://fr.archive.ubuntu.com/ubuntu noble/main amd64 libncurses-dev amd64 6.4+20240113-1ubuntu2 [384 kB]
+Réception de :2 http://fr.archive.ubuntu.com/ubuntu noble-updates/main amd64 libxml2-dev amd64 2.9.14+dfsg-1.3ubuntu3.5 [781 kB]
+Réception de :3 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-runtime amd64 1:18.1.3-1ubuntu1 [538 kB]                                              
+Réception de :4 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 llvm-runtime amd64 1:18.0-59~exp2 [5 496 B]                                                           
+Réception de :5 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-linker-tools amd64 1:18.1.3-1ubuntu1 [1 314 kB]                                       
+Réception de :6 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 libpfm4 amd64 4.13.0+git32-g0d4ed0e-1 [414 kB]                                                        
+Réception de :7 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18 amd64 1:18.1.3-1ubuntu1 [25,3 MB]                                                     
+Réception de :8 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 llvm amd64 1:18.0-59~exp2 [4 146 B]                                                                   
+Réception de :9 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-tools amd64 1:18.1.3-1ubuntu1 [534 kB]                                                
+Réception de :10 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 libz3-4 amd64 4.8.12-3.1build1 [5 836 kB]                                                            
+Réception de :11 http://fr.archive.ubuntu.com/ubuntu noble/universe amd64 libz3-dev amd64 4.8.12-3.1build1 [72,2 kB]                                                           
+Réception de :12 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 llvm-18-dev amd64 1:18.1.3-1ubuntu1 [45,1 MB]                                                
+80,3 Mo réceptionnés en 2min 27s (545 ko/s)                                                                                                                                    
+Sélection du paquet libncurses-dev:amd64 précédemment désélectionné.
+(Lecture de la base de données... 281424 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de .../00-libncurses-dev_6.4+20240113-1ubuntu2_amd64.deb ...
+Dépaquetage de libncurses-dev:amd64 (6.4+20240113-1ubuntu2) ...
+Sélection du paquet libxml2-dev:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../01-libxml2-dev_2.9.14+dfsg-1.3ubuntu3.5_amd64.deb ...
+Dépaquetage de libxml2-dev:amd64 (2.9.14+dfsg-1.3ubuntu3.5) ...
+Sélection du paquet llvm-18-runtime précédemment désélectionné.
+Préparation du dépaquetage de .../02-llvm-18-runtime_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de llvm-18-runtime (1:18.1.3-1ubuntu1) ...
+Sélection du paquet llvm-runtime:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../03-llvm-runtime_1%3a18.0-59~exp2_amd64.deb ...
+Dépaquetage de llvm-runtime:amd64 (1:18.0-59~exp2) ...
+Sélection du paquet llvm-18-linker-tools précédemment désélectionné.
+Préparation du dépaquetage de .../04-llvm-18-linker-tools_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de llvm-18-linker-tools (1:18.1.3-1ubuntu1) ...
+Sélection du paquet libpfm4:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../05-libpfm4_4.13.0+git32-g0d4ed0e-1_amd64.deb ...
+Dépaquetage de libpfm4:amd64 (4.13.0+git32-g0d4ed0e-1) ...
+Sélection du paquet llvm-18 précédemment désélectionné.
+Préparation du dépaquetage de .../06-llvm-18_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de llvm-18 (1:18.1.3-1ubuntu1) ...
+Sélection du paquet llvm précédemment désélectionné.
+Préparation du dépaquetage de .../07-llvm_1%3a18.0-59~exp2_amd64.deb ...
+Dépaquetage de llvm (1:18.0-59~exp2) ...
+Sélection du paquet llvm-18-tools précédemment désélectionné.
+Préparation du dépaquetage de .../08-llvm-18-tools_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de llvm-18-tools (1:18.1.3-1ubuntu1) ...
+Sélection du paquet libz3-4:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../09-libz3-4_4.8.12-3.1build1_amd64.deb ...
+Dépaquetage de libz3-4:amd64 (4.8.12-3.1build1) ...
+Sélection du paquet libz3-dev:amd64 précédemment désélectionné.
+Préparation du dépaquetage de .../10-libz3-dev_4.8.12-3.1build1_amd64.deb ...
+Dépaquetage de libz3-dev:amd64 (4.8.12-3.1build1) ...
+Sélection du paquet llvm-18-dev précédemment désélectionné.
+Préparation du dépaquetage de .../11-llvm-18-dev_1%3a18.1.3-1ubuntu1_amd64.deb ...
+Dépaquetage de llvm-18-dev (1:18.1.3-1ubuntu1) ...
+Paramétrage de libncurses-dev:amd64 (6.4+20240113-1ubuntu2) ...
+Paramétrage de llvm-18-tools (1:18.1.3-1ubuntu1) ...
+Paramétrage de libxml2-dev:amd64 (2.9.14+dfsg-1.3ubuntu3.5) ...
+Paramétrage de libz3-4:amd64 (4.8.12-3.1build1) ...
+Paramétrage de libpfm4:amd64 (4.13.0+git32-g0d4ed0e-1) ...
+Paramétrage de llvm-18-linker-tools (1:18.1.3-1ubuntu1) ...
+Paramétrage de llvm-18-runtime (1:18.1.3-1ubuntu1) ...
+Paramétrage de libz3-dev:amd64 (4.8.12-3.1build1) ...
+Paramétrage de llvm-runtime:amd64 (1:18.0-59~exp2) ...
+Paramétrage de llvm-18 (1:18.1.3-1ubuntu1) ...
+Paramétrage de llvm-18-dev (1:18.1.3-1ubuntu1) ...
+Paramétrage de llvm (1:18.0-59~exp2) ...
+Traitement des actions différées (« triggers ») pour systemd (255.4-1ubuntu8.11) ...
+Warning: The unit file, source configuration file or drop-ins of systemd-binfmt.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+Traitement des actions différées (« triggers ») pour man-db (2.12.0-4build2) ...
+Traitement des actions différées (« triggers ») pour libc-bin (2.39-0ubuntu8.6) ...
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ llvm-objcopy  -I elf64-x86-64 -O pei-x86-64  target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+llvm-objcopy: error: invalid output format: 'pei-x86-64'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ llvm-objcopy \
+    -I elf64-x86-64 \
+    -O efi-app-bootloader \
+    target/x86_64-unknown-uefi/debug/bootx64 \
+    target/x86_64-unknown-uefi/debug/bootx64.efi
+llvm-objcopy: error: invalid output format: 'efi-app-bootloader'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo apt-get install binutils
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+binutils est déjà la version la plus récente (2.42-4ubuntu2.5).
+binutils passé en « installé manuellement ».
+0 mis à jour, 0 nouvellement installés, 0 à enlever et 6 non mis à jour.
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ objcopy -I elf64-x86-64 -O pei-x86-64 --set-section-alignment .text=16 --set-section-alignment .data=16 target/x86_64-unknown-uefi/debug/bootx64 target/x86_64-unknown-uefi/debug/bootx64.efi
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 \
+    -bios /usr/share/ovmf/OVMF_CODE.fd \
+    -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/
+qemu-system-x86_64: -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/: Directory does not fit in FAT16 (capacity 516.06 MB)
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/
+CACHEDIR.TAG  debug/        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/
+CACHEDIR.TAG  debug/        
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/
+bootx64                bootx64.d              build/                 deps/                  .fingerprint/          libfirmware_rust.rlib  
+bootx64.bin            bootx64.efi            .cargo-lock            examples/              incremental/           
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/
+bootx64                bootx64.d              build/                 deps/                  .fingerprint/          libfirmware_rust.rlib  
+bootx64.bin            bootx64.efi            .cargo-lock            examples/              incremental/           
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/
+qemu-system-x86_64: -drive format=raw,file=fat:rw:target/x86_64-unknown-uefi/debug/: Directory does not fit in FAT16 (capacity 516.06 MB)
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ dd if=/dev/zero of=fat.img bs=1M count=32
+32+0 enregistrements lus
+32+0 enregistrements écrits
+33554432 octets (34 MB, 32 MiB) copiés, 0,0248131 s, 1,4 GB/s
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ mkfs.vfat fat.img
+mkfs.fat 4.2 (2021-01-31)
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo mount -o loop fat.img /mnt
+sudo cp target/x86_64-unknown-uefi/debug/bootx64.efi /mnt/BOOTX64.EFI
+sudo umount /mnt
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo mkdir -p /mnt/EFI/BOOT
+sudo cp target/x86_64-unknown-uefi/debug/bootx64.efi /mnt/EFI/BOOT/BOOTX64.EFI
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive file=fat.img,format=raw
+qemu: could not load PC BIOS '/usr/share/ovmf/OVMF_CODE.fd'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive file=fat.img,format=raw
+qemu: could not load PC BIOS '/usr/share/ovmf/OVMF_CODE.fd'
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$   ls /usr/share/ovmf/OVMF_CODE.fd
+ls: impossible d'accéder à '/usr/share/ovmf/OVMF_CODE.fd': Aucun fichier ou dossier de ce nom
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ ^Cmu-system-x86_64 -bios /usr/share/ovmf/OVMF_CODE.fd -drive file=fat.img,format=raw
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo   ls /usr/share/ovmf/OVMF_CODE.fd
+ls: impossible d'accéder à '/usr/share/ovmf/OVMF_CODE.fd': Aucun fichier ou dossier de ce nom
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ sudo apt update
+sudo apt install ovmf
+Atteint :1 http://fr.archive.ubuntu.com/ubuntu noble InRelease
+Réception de :2 http://fr.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]                    
+Atteint :3 https://download.docker.com/linux/ubuntu noble InRelease                                     
+Atteint :4 https://dbeaver.io/debs/dbeaver-ce  InRelease                                                
+Réception de :5 http://fr.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Réception de :6 http://fr.archive.ubuntu.com/ubuntu noble-updates/main i386 Packages [541 kB]
+Réception de :7 http://fr.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1 530 kB]
+Réception de :8 http://fr.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+Réception de :9 http://fr.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Réception de :10 http://fr.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+Réception de :11 http://fr.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Réception de :12 http://fr.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7 124 B]
+Réception de :13 http://fr.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+Réception de :14 http://fr.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10,9 kB]
+Réception de :15 http://fr.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Réception de :16 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Atteint :17 https://packages.microsoft.com/repos/code stable InRelease                     
+Réception de :18 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1 249 kB]
+Réception de :19 http://security.ubuntu.com/ubuntu noble-security/main i386 Packages [343 kB]                                                                                  
+Réception de :20 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [207 kB]                                                                                 
+Réception de :21 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [21,5 kB]                                                                              
+Réception de :22 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2 041 kB]                                                                         
+Réception de :23 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [462 kB]                                                                           
+Réception de :24 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]                                                                          
+Réception de :25 http://security.ubuntu.com/ubuntu noble-security/universe i386 Packages [562 kB]                                                                              
+Réception de :26 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [904 kB]                                                                             
+Réception de :27 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [52,3 kB]                                                                          
+Réception de :28 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]                                                                          
+8 864 ko réceptionnés en 12s (715 ko/s)                                                                                                                                        
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+6 paquets peuvent être mis à jour. Exécutez « apt list --upgradable » pour les voir.
+W: https://dbeaver.io/debs/dbeaver-ce/InRelease: La clé est stockée dans l'ancien trousseau de clés trust.gpg (/etc/apt/trusted.gpg), voir la section DÉPRÉCATION dans apt-key(8) pour plus de détails.
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances... Fait
+Lecture des informations d'état... Fait      
+ovmf est déjà la version la plus récente (2024.02-2ubuntu0.4).
+0 mis à jour, 0 nouvellement installés, 0 à enlever et 6 non mis à jour.
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ ls /usr/share/OVMF/
+OVMF_CODE_4M.fd  OVMF_CODE_4M.ms.fd  OVMF_CODE_4M.secboot.fd  OVMF_CODE_4M.snakeoil.fd  OVMF_VARS_4M.fd  OVMF_VARS_4M.ms.fd  OVMF_VARS_4M.snakeoil.fd
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 \
+    -bios /usr/share/OVMF/OVMF_CODE_4M.fd \
+    -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd \
+    -drive if=pflash,format=raw,file=OVMF_VARS_4M.fd \
+    -drive file=fat.img,format=raw \
+    -m 1024
+qemu-system-x86_64: -drive if=pflash,format=raw,file=OVMF_VARS_4M.fd: Could not open 'OVMF_VARS_4M.fd': No such file or directory
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64     -bios /usr/share/OVMF/OVMF_CODE_4M.fd     -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd     -drive if=pflash,format=raw,file=OVMF_VARS_4M.fd     -drive file=fat.img,format=raw     -m 1024
+qemu-system-x86_64: -drive if=pflash,format=raw,file=OVMF_VARS_4M.fd: Could not open 'OVMF_VARS_4M.fd': No such file or directory
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ cp /usr/share/OVMF/OVMF_VARS_4M.fd .
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ qemu-system-x86_64 -bios /usr/share/OVMF/OVMF_CODE_4M.fd -drive file=fat.img,format=raw -drive if=pflash,format=raw,file=OVMF_VARS_4M.fd
+clement@clement-Inspiron-16-5645:~/Projets/Reverse engineering/firmware_rust$ 
