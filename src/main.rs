@@ -12,22 +12,6 @@ fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
 
-// Fonction pour changer la couleur d'un pixel
-fn set_pixel(
-    frame_ptr: *mut u8,
-    frame_len: usize,
-    width: usize,
-    x: usize,
-    y: usize,
-    color: [u8; 4],
-) {
-    let index = (y * width + x) * 4;
-    if index + 4 <= frame_len {
-        unsafe {
-            core::ptr::copy_nonoverlapping(color.as_ptr(), frame_ptr.add(index), 4);
-        }
-    }
-}
 #[entry]
 fn main(_image_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
     let gop_ptr = system_table
@@ -48,22 +32,13 @@ fn main(_image_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
     // Récupérer le protocole graphique
 
     let (width, height) = gop.current_mode_info().resolution();
-    let red = [255, 255, 0, 0]; // (B,G,R,Nothing)
+
+    // Récupérer le framebuffer et convertir en slice mutable
+    let mut frame = gop.frame_buffer();
+    let frame_ptr = frame.as_mut_ptr();
+    let frame_len = frame.size();
 
     loop {
-        // Récupérer le framebuffer et convertir en slice mutable
-        let mut frame = gop.frame_buffer();
-        let frame_ptr = frame.as_mut_ptr();
-        let frame_len = frame.size();
-
-        // Modifier le pixel en (100,100)
-        for x in 0..50 {
-            for y in 0..50 {
-                set_pixel(frame_ptr, frame_len, width, x, y, red);
-            }
-        }
-        count += 1;
-
         // Obtenir l'heure actuelle
         let current_time: Time = system_table.runtime_services().get_time().unwrap().unwrap();
 
@@ -79,7 +54,36 @@ fn main(_image_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
             last_time = current_time;
         }
 
+        let red = [
+            (current_time.second()) % 255,
+            (current_time.second()) % 255,
+            0,
+            0,
+        ]; // (B,G,R,Nothing)
+        for x in 0..width {
+            for y in 0..height {
+                set_pixel(frame_ptr, frame_len, width, x, y, red);
+            }
+        }
+        count += 1;
+
         // Petit délai pour ne pas saturer le CPU
-        system_table.boot_services().stall(10_000); // 10 ms
+        system_table.boot_services().stall(4_080); // 4 ms
+    }
+}
+
+fn set_pixel(
+    frame_ptr: *mut u8,
+    frame_len: usize,
+    width: usize,
+    x: usize,
+    y: usize,
+    color: [u8; 4],
+) {
+    let index = (y * width + x) * 4;
+    if index + 4 <= frame_len {
+        unsafe {
+            core::ptr::copy_nonoverlapping(color.as_ptr(), frame_ptr.add(index), 4);
+        }
     }
 }
